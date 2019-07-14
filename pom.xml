@@ -11,8 +11,10 @@
     <modules>
         <module>chapter1-a</module>
         <module>chapter1-b</module>
+        <module>chapter2-a</module>
+        <module>chapter2-b</module>
+        <module>chapter2-c</module>
         <module>chapter3-a</module>
-        <module>chapter1-c</module>
     </modules>
 
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smy.chapter2.dao.ArticleMapper">
+
+    <resultMap id="articleResult" type="com.smy.chapter2.model.Article">
+        <id property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <association property="author" column="{id=author_id,name=title}" javaType="com.smy.chapter2.model.Author" select="findAuthor"/>
+    </resultMap>
+
+    <select id="findOne" resultMap="articleResult">
+        SELECT
+            id, author_id, title, content, create_time
+        FROM
+            article
+        WHERE
+            id = #{id}
+    </select>
+
+    <select id="findAuthor" parameterType="com.smy.chapter2.model.Author" resultType="com.smy.chapter2.model.Author">
+        SELECT
+            id, name, age, sex, email
+        FROM
+            author
+        WHERE
+            id = #{id}
+    </select>
+</mapper>
